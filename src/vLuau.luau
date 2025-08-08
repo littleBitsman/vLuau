@@ -1,16 +1,17 @@
 --!strict
 --!optimize 2
 --[[
-
 vLuau - vLua but supports Luau too!
 Original by kosukeReboyX (GitHub: kosuke14)
 
+LuauCeption by RadiatedExodus (GitHub: RadiatedExodus/LuauCeption)
+Fiu by rce-incorporated (GitHub: rce-incorporated/Fiu)
+
 Rewrite by littleBitsman
 
-(yes this exists on GitHub, but I didn't like how the main vLuau was written so I made this!)
+(yes this exists on GitHub already, but I didn't like how the main vLuau was written so I made this!)
 
 Licensed under the MIT License.
-
 ]]
 
 --[=[
