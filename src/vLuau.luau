@@ -218,12 +218,8 @@ vLuau.Compiler = Compiler
 ]=]
 vLuau.VM = VM
 
-return setmetatable(vLuau, {
-	__newindex = function()
-		error("attempt to modify read-only table", 0)
-	end,
+return table.freeze(setmetatable(vLuau, {
 	__call = function(self, source, chunkname, env, compOpts, execSettings)
 		return vLuau.execute(source, chunkname, env or getenv(2), compOpts, execSettings)
-	end,
-	__metatable = "The metatable is locked"
-}) :: typeof(vLuau) & typeof(vLuau.execute)
+	end
+})) :: typeof(vLuau) & typeof(vLuau.execute)
