@@ -226,4 +226,4 @@ return setmetatable(vLuau, {
 		return vLuau.execute(source, chunkname, env or getenv(2), compOpts, execSettings)
 	end,
 	__metatable = "The metatable is locked"
-})
+}) :: typeof(vLuau) & (string, string?, { [string]: any }?, CompilationOptions?, VMSettings) -> ...any
