@@ -1,1 +1,0 @@
-return getfenv -- Little hack (that might not work) to get around deoptimization from getfenv
