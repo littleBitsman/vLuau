@@ -179,8 +179,9 @@ end
 	@param env { [string]: any }? -- The environment to execute the code in. Defaults to the caller's environment.
 	@param compilationOptions CompilationOptions? -- Options for compiling the source code (if `source` is a string).
 	@param executionOptions VMSettings? -- Options for executing the bytecode. You will likely not need to use this.
+	@return ...any -- The result of executing the chunk. Unless it has an explicit return, this will be `nil`.
 ]=]
-function vLuau.execute(source: buffer | string, chunkname: string?, env: { [string]: any }?, compilationOptions: CompilationOptions?, executionOptions: VMSettings)
+function vLuau.execute(source: buffer | string, chunkname: string?, env: { [string]: any }?, compilationOptions: CompilationOptions?, executionOptions: VMSettings): ...any
 	local bytecode
 	if typeof(source) == "buffer" then
 		bytecode = source
@@ -190,7 +191,7 @@ function vLuau.execute(source: buffer | string, chunkname: string?, env: { [stri
 		error(`invalid argument #1 to 'execute' (buffer or string expected, got {typeof(source)}`, 0)
 	end
 	
-	vLuau.loadBytecode(bytecode, chunkname, env, executionOptions)()
+	return vLuau.loadBytecode(bytecode, chunkname, env, executionOptions)()
 end
 
 --[=[
@@ -222,7 +223,7 @@ return setmetatable(vLuau, {
 		error("attempt to modify read-only table", 0)
 	end,
 	__call = function(self, source, chunkname, env, compOpts, execSettings)
-		vLuau.execute(source, chunkname, env or getenv(2), compOpts, execSettings)
+		return vLuau.execute(source, chunkname, env or getenv(2), compOpts, execSettings)
 	end,
 	__metatable = "The metatable is locked"
 })
