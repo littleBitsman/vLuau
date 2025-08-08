@@ -1,11 +1,9 @@
 --!optimize 2
 --[[
-
 Fiu (GitHub: rce-incorporated/Fiu)
 Modified by littleBitsman.
 
 Luau VM, written in Luau.
-
 ]]
 
 -- // Environment changes in the VM are not supposed to alter the behaviour of the VM so we localise globals beforehand
