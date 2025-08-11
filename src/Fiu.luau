@@ -1,3 +1,4 @@
+--!native
 --!optimize 2
 --[[
 Fiu (GitHub: rce-incorporated/Fiu)
