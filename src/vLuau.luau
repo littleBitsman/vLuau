@@ -191,7 +191,7 @@ function vLuau.execute(source: buffer | string, chunkname: string?, env: { [stri
 		error(`invalid argument #1 to 'execute' (buffer or string expected, got {typeof(source)}`, 0)
 	end
 	
-	return vLuau.loadBytecode(bytecode, chunkname, env, executionOptions)()
+	return vLuau.loadBytecode(bytecode, chunkname, env or getenv(2), executionOptions)()
 end
 
 --[=[
