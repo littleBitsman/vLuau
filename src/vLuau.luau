@@ -14,6 +14,8 @@ Rewrite by littleBitsman
 Licensed under the MIT License.
 ]]
 
+debug.setmemorycategory("vLuau")
+
 --[=[
 	@class Main
 	

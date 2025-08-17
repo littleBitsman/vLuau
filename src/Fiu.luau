@@ -7,6 +7,8 @@ Modified by littleBitsman.
 Luau VM, written in Luau.
 ]]
 
+debug.setmemorycategory("vLuau: Fiu (VM)")
+
 -- // Environment changes in the VM are not supposed to alter the behaviour of the VM so we localise globals beforehand
 local FULL_NAME_PATTERN_THING = `{script:GetFullName()}:%d+: `
 
@@ -640,7 +642,7 @@ local function luau_deserialize(bytecode, luau_settings: Settings)
 	}
 end
 
-local function luau_load(module: buffer | string, env: { [string]: any }, luau_settings: Settings)
+local function luau_load(module: any, env: { [string]: any }, luau_settings: Settings)
 	if luau_settings == nil then
 		luau_settings = luau_newsettings()
 	else 
@@ -1348,6 +1350,8 @@ local function luau_load(module: buffer | string, env: { [string]: any }, luau_s
 				coroutine_close(iter)
 				generalized_iterators[i] = nil
 			end
+
+			return nil
 		end
 
 		local function wrapped(...)

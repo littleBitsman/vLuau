@@ -3,6 +3,8 @@
 --// LuauCeption - Compiler variant
 --// Luau 0.654 (8cc289fae430d9b0c22bde209fe5cf2d01751ff1)
 
+debug.setmemorycategory("vLuau: LuauCeption (Compiler)")
+
 local STUB_WARN = true
 
 local function no_op(num)
