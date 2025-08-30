@@ -627,7 +627,7 @@ local function luau_deserialize(bytecode, luau_settings: Settings)
 	end
 
 	local mainProto = protoList[readVarInt() + 1]
-	
+
 	assert(cursor == buffer_len(stream), "deserializer cursor position mismatch")
 
 	mainProto.debugname = luau_settings.chunkname or "(main)"
@@ -1389,7 +1389,7 @@ local function luau_load(module: any, env: { [string]: any }, luau_settings: Set
 				if panicHook then
 					panicHook(message, stack, debugging, proto, module, upvals)
 				end
-				
+
 				if ttisstring(message) == false then
 					if luau_settings.allowProxyErrors then
 						error(message)
